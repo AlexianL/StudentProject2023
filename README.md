@@ -3,7 +3,7 @@
 
 ## Description
 
-The need for precise nuclear mass predictions is becoming increasingly important for astrophysical applications. This contribution aim at using Artificial Neural Networks (ANNs) in order to predict the binding energy, the 2 proton and 2 neutron separation energies for nuclei with Z protons and N neutrons. The predicted data will then be compared to the experimental data from the latest Atomic Mass Evaluation (AME2020) [[1](https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt)] and to microscopic-macroscopic Duflo-Zuker model with 10 parameters (DZ10) [[2](https://arxiv.org/abs/1407.8221)].
+The need for precise nuclear mass predictions is becoming increasingly important for astrophysical applications. This contribution aim at using Artificial Neural Networks (ANNs) in order to predict the binding energy, the 2 proton and 2 neutron separation energies for nuclei with Z protons and N neutrons. The predicted data will then be compared to the experimental data from the latest Atomic Mass Evaluation (AME2020) [[1](https://www-nds.iaea.org/amdc/ame2020/mass_1.mas20.txt)] and to microscopic Duflo-Zuker model with 10 parameters (DZ10) [[2](https://arxiv.org/abs/1407.8221)].
 To this end, we will solve a typical regression problem in Machine Learning (ML) by setting a feed-forward ANN using PYTHON with Keras library. 
 
 ## Installation 
