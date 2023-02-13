@@ -8,19 +8,27 @@ To this end, we will solve a typical regression problem in Machine Learning (ML)
 
 ## Installation 
 
+### Fortran compiler
+
 In this project, DZ10 model as been provided to us by a Fortran program and small modifications has been made to this file for the sake of our use, we thus used gfortran to compile the program. 
 ```bash
 sudo apt-get install gfortran
 ```
 
+### PYTHON and TensorFlow
+
 All the remaining files use PYTHON and Keras library. Keras is an open-source software library that provides a Python interface for artificial neural networks acting as an interface for the TensorFlow library.
 
-[Check](https://www.tensorflow.org/install/source#gpu) 
+TensorFlow requires specific version of some GPU drivers, it can be checked [on this address](https://www.tensorflow.org/install/source#gpu). The user needs to have a GPU compatible with the CUDA toolkit ([check if your is compatible](https://developer.nvidia.com/cuda-gpus)). If this is not the case, we have a solution using Google Colaboratory. We used TensorFlow version 2.10 which is compatible with PYTHON versions 3.7-3.10, it needs GCC version 9.3.1, build tools Bazel 5.1.1, cuDNN 8.1, CUDA 11.2. 
+
+### Google Colaboratory
+
+One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it in "My Drive" which is inside Google Drive. 
 
 
 ## Usage
 
-Compite the Fortran program with :
+Compile the Fortran program with :
 ```bash
 gfortran du_zu.f -o bin/duzu.exe
 ```
