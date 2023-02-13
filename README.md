@@ -25,6 +25,9 @@ TensorFlow requires specific version of some GPU drivers, it can be checked [on 
 
 One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it in "My Drive" which is inside Google Drive. 
 
+![alt text for screen readers](/images/google_colab_tutorial_1.jpg "Text to show on mouseover").
+
+![alt text for screen readers](/images/to/google_colab_tutorial_2.jpg "Text to show on mouseover").
 
 ## Usage
 
