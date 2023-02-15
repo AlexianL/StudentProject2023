@@ -20,7 +20,7 @@ For macOS, all the librairies can be easily installed with conda.
 
 ### Google Colaboratory
 
-One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it and inside the extracted folder, there will be another folder with the same name. Copy this folder in "My Drive" which is inside Google Drive. The notebooks are designed to be executed under Google Colaboraty. However executing the code with Google Colaboratory won't be able to reproduce the same results as in the article, they will be by far worst because we reduced the number of epochs when training our ANN from 6000 to 200. Still, they are designed to make the user understand our code as it is the most documented version. If the user want to obtain similar results as in the article, he should download the repository and use the python file named "6_complete_code.py", this version is not well documented nor well structured, but is designed to be compiled on any computer as it uses relative paths. 
+One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it and inside the extracted folder, there will be another folder with the same name. Copy this folder in "My Drive" which is inside Google Drive. The notebooks are designed to be executed under Google Colaboratory. However executing the code with Google Colaboratory won't be able to reproduce the same results as in the article, they will be by far worst because we reduced the number of epochs when training our ANN from 6000 to 200, as it would take too much time to use 6000. Still, they are designed to make the user understand our code as it is the most documented version. If the user want to obtain similar results as in the article, he should download the repository and use the python file named "6_complete_code.py", this version is not well documented nor well structured, but is designed to be compiled on any computer as it uses relative paths. 
 
 ## Usage
 
@@ -49,9 +49,13 @@ The user will have to select "GPU" as the hardware accelerator.
 
 ![Google Colab Tutorial 2](/images/google_colab_tutorial_2.jpg "Google Colab Tutorial 2").
 
+When executing the code block related to Google Drive in each notebooks, Google will ask for some permissions.
+
+![Google Colab Tutorial 3](/images/google_colab_tutorial_3.jpg "Google Colab Tutorial 3").
+
 ### Complete code
 
-In the case of execution problem with the Google Colab notebooks, it is still possible to run a version of the code which will give the same plots at the end. This code is named "6_complete_code.py".
+In the case of execution problem with the Google Colab notebooks, or if you want to use the ANN with more power, it is possible to run a version of the code which will give the same plots at the end. This code is named "6_complete_code.py". We remind that this version isn't as well documented nor structured as the notebooks and should be used for execution only. 
 To execute it, you must download the zip from github, then move to the directory "StudentProject2023" and use this command:
 
 ```
