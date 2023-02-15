@@ -20,8 +20,7 @@ For macOS, all the librairies can be easily installed with conda.
 
 ### Google Colaboratory
 
-One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it in "My Drive" which is inside Google Drive. 
-
+One of this repository author didn't have a CUDA compatible GPU. A solution has been found using Google Colaboratory which can give access to a GPU in the cloud to its users. The capacity of this GPU is far from being the best and some of our programs execution time are impacted greatly (mainly the artificial neural network training). This solution will use both Google Colaboratory and Google Drive. The user must download this repository, extract it and inside the extracted folder, there will be another folder with the same name. Copy this folder in "My Drive" which is inside Google Drive. The notebooks are designed to be executed under Google Colaboraty. However executing the code with Google Colaboratory won't be able to reproduce the same results as in the article, they will be by far worst because we reduced the number of epochs when training our ANN from 6000 to 200. Still, they are designed to make the user understand our code as it is the most documented version. If the user want to obtain similar results as in the article, he should download the repository and use the python file named "6_complete_code.py", this version is not well documented nor well structured, but is designed to be compiled on any computer as it uses relative paths. 
 
 ## Usage
 
@@ -53,7 +52,7 @@ The user will have to select "GPU" as the hardware accelerator.
 ### Complete code
 
 In the case of execution problem with the Google Colab notebooks, it is still possible to run a version of the code which will give the same plots at the end. This code is named "6_complete_code.py".
-To execute it, you must download the zip on github, then move to the directory "StudentProject2023" and use this command:
+To execute it, you must download the zip from github, then move to the directory "StudentProject2023" and use this command:
 
 ```
 python3 6_complete_code.py
@@ -64,11 +63,9 @@ The plots will be saved into "5_plots".
 
 It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" remains constant. If this situation happens to you, please execute again the "4_artificial_neural_netork.ipynb" or "6_complete_code.py" until this works. This error can occur on any machine.
 
-
-
 ## Roadmap
 
-
+This project could be followed by the upgrade of our artificial neural network to a bayesian neural network which has been described to give better results with less parameters, and as well provide the theoretical uncertainties. 
 
 ## License
 
