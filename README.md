@@ -10,9 +10,11 @@ To this end, we will solve a typical regression problem in Machine Learning (ML)
 
 ### PYTHON and TensorFlow
 
-The project is mainly using PYTHON and Keras library. Keras is an open-source software library that provides a Python interface for artificial neural networks acting as an interface for the TensorFlow library.
+The project is mainly using PYTHON and Keras library. Keras is an open-source software library that provides a Python interface for artificial neural networks acting as an interface for the TensorFlow library. Scikit-learn is also necessary to run the codes.
 
 TensorFlow requires specific version of some GPU drivers, it can be checked [on this address](https://www.tensorflow.org/install/source#gpu). The user needs to have a GPU compatible with the CUDA toolkit ([check if your is compatible](https://developer.nvidia.com/cuda-gpus)). If this is not the case, we have a solution using Google Colaboratory. We used TensorFlow version 2.10 which is compatible with PYTHON versions 3.7-3.10, it needs GCC version 9.3.1, build tools Bazel 5.1.1, cuDNN 8.1, CUDA 11.2. TensorFlow can be installed via conda.
+
+For macOS, all the librairies can be easily installed with conda.
 
 
 
@@ -48,7 +50,7 @@ The user will have to select "GPU" as the hardware accelerator.
 
 ![Google Colab Tutorial 2](/images/google_colab_tutorial_2.jpg "Google Colab Tutorial 2").
 
-## Complete code
+### Complete code
 
 In the case of execution problem with the Google Colab notebooks, it is still possible to run a version of the code which will give the same plots at the end. This code is named "6_complete_code.py".
 To execute it, you must download the zip on github, then move to the directory "StudentProject2023" and use this command:
@@ -56,11 +58,11 @@ To execute it, you must download the zip on github, then move to the directory "
 ```
 python3 6_complete_code.py
 ```
-And the plots will be saved into "5_plots".
+The plots will be saved into "5_plots".
 
 ## ANN error
 
-It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" will remain constant. If this situation happens to you, please execute the code until this works.
+It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" remaining constant. If this situation happens to you, please execute again the "4_artificial_neural_netork.ipynb" or "6_complete_code.py" until this works. This error can occur on any machine.
 
 
 
