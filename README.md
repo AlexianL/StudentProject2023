@@ -66,7 +66,3 @@ It can happen, both for notebooks and .py code, that the learning phase of the A
 ## Roadmap
 
 This project could be followed by the upgrade of our artificial neural network to a bayesian neural network which has been described to give better results with less parameters, and as well provide the theoretical uncertainties. 
-
-## License
-
-[GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html)
