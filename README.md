@@ -48,6 +48,20 @@ The user will have to select "GPU" as the hardware accelerator.
 
 ![Google Colab Tutorial 2](/images/google_colab_tutorial_2.jpg "Google Colab Tutorial 2").
 
+## Complete code
+
+In the case of execution problem with the Google Colab notebooks, it is still possible to run a version of the code which will give the same plots at the end. This code is named "6_complete_code.py".
+To execute it, you must download the zip on github, then move to the directory "StudentProject2023" and use this command:
+
+```
+python3 6_complete_code.py
+```
+And the plots will be saved into "5_plots".
+
+## ANN error
+
+It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" will remain constant. If this situation happens to you, please execute the code until this works.
+
 
 
 ## Roadmap
