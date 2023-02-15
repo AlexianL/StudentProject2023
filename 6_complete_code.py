@@ -22,11 +22,11 @@ from tqdm import tqdm
 ##################################################### RAW DATA
 
 #Open AME mass table document
-mass_file = open("/1_raw_data/mass_1.mas20.txt","r+")
+mass_file = open("1_raw_data/mass_1.mas20.txt","r+")
 
 
 #We create the .csv file and give the name of the columns
-mass_csv = open("/2_processed_data/mass_data.csv","w+")
+mass_csv = open("2_processed_data/mass_data.csv","w+")
 ame_csv_header_row = "N-Z;N;Z;A;ame_ME;ame_ME_unc;ame_BE/A;ame_BE/A_unc;ame_BDE;ame_BDE_unc;ame_AM;ame_AM_unc\n"
 mass_csv.writelines(ame_csv_header_row)
 
@@ -92,13 +92,13 @@ for element in element_list :
     mass_csv.writelines(";".join(splitted_line) + "\n")
     
 #Open DZ10 document
-duzu_file=open("/1_raw_data/duzu.txt","r+")
+duzu_file=open("1_raw_data/duzu.txt","r+")
 
 #Extract data from DZ10 into a .csv file
 
 dz_element_list=duzu_file.readlines()
 
-dz_csv=open("/2_processed_data/dz_data.csv","w+")
+dz_csv=open("2_processed_data/dz_data.csv","w+")
 dz_csv_header_row="Z;N;dz_BE/A;dz_ME\n"
 dz_csv.writelines(dz_csv_header_row)
 
@@ -118,7 +118,7 @@ for element in dz_element_list :
 
 ####################################################### DATA PROCESSING
 
-dz_data = pd.read_csv("/2_processed_data/dz_data.csv", sep=";")
+dz_data = pd.read_csv("2_processed_data/dz_data.csv", sep=";")
 #We create a new column in pandas dataframe "dz_data" containing mass number
 dz_data["A"] = dz_data["Z"] + dz_data["N"]
 
@@ -140,7 +140,7 @@ dz_data = dz_data.sort_values(by=['Z','A'], ascending=True)
 dz_data['dz_S2n'] = dz_data['dz_BE'] - dz_data['dz_BE'].shift(2)
 
 
-ame_data = pd.read_csv("/2_processed_data/mass_data.csv", sep=";")
+ame_data = pd.read_csv("2_processed_data/mass_data.csv", sep=";")
 
 ame_data['ame_BE'] = ame_data['ame_BE/A'] * ame_data['A']
 
@@ -195,7 +195,7 @@ for i, row in merged_data.iterrows():
 
 #We save this merged dataframe to .csv
 
-merged_data.to_csv("/2_processed_data/merged_data.csv",sep=";", index=False)
+merged_data.to_csv("2_processed_data/merged_data.csv",sep=";", index=False)
 
 merged_data.drop(merged_data[(merged_data["ame_S2n"]<0 )].index, inplace=True)
 merged_data.drop(merged_data[(merged_data["ame_S2p"]<0 )].index, inplace=True)
@@ -233,12 +233,12 @@ test_data.drop(test_data[(test_data["ame_S1n"]<0 )].index, inplace=True)
 test_data.drop(test_data[(test_data["ame_S1p"]<0 )].index, inplace=True)
 
 
-train_data.to_csv("/2_processed_data/train_merged_data.csv",sep=";")
-test_data.to_csv("/2_processed_data/validation_merged_data.csv",sep=";")
+train_data.to_csv("2_processed_data/train_merged_data.csv",sep=";")
+test_data.to_csv("2_processed_data/validation_merged_data.csv",sep=";")
 
 ####################################################### DATA RESCALING
 
-merged_data = pd.read_csv("/2_processed_data/merged_data.csv", sep=";")
+merged_data = pd.read_csv("2_processed_data/merged_data.csv", sep=";")
 
 scaler = MinMaxScaler(feature_range=(0,1))
 
@@ -252,7 +252,7 @@ columns=["ame_BE","N","Z","Surf","Asym","Coul","Pair","Z_parity","N_parity","Z_d
 
 rescale(columns)
 
-merged_data.to_csv("/3_rescaled_data/rescaled_data.csv",sep=";", index=False)
+merged_data.to_csv("3_rescaled_data/rescaled_data.csv",sep=";", index=False)
 
 merged_data.drop(merged_data[(merged_data["ame_S2n"]<0 )].index, inplace=True)
 merged_data.drop(merged_data[(merged_data["ame_S2p"]<0 )].index, inplace=True)
@@ -291,12 +291,12 @@ test_data.drop(test_data[(test_data["ame_S1n"]<0 )].index, inplace=True)
 test_data.drop(test_data[(test_data["ame_S1p"]<0 )].index, inplace=True)
 
 
-train_merged_csv = train_data.to_csv("/3_rescaled_data/train_rescaled_data.csv",sep=";")
-validation_merged_csv = test_data.to_csv("/3_rescaled_data/validation_rescaled_data.csv",sep=";")
+train_merged_csv = train_data.to_csv("3_rescaled_data/train_rescaled_data.csv",sep=";")
+validation_merged_csv = test_data.to_csv("3_rescaled_data/validation_rescaled_data.csv",sep=";")
 
 ####################################################### ARTIFICIAL NEURAL NETWORK
 
-train_data = pd.read_csv("/3_rescaled_data/train_rescaled_data.csv", sep=";")
+train_data = pd.read_csv("3_rescaled_data/train_rescaled_data.csv", sep=";")
 
 #First inputs
 target = train_data["rescaled_ame_BE"]
@@ -357,7 +357,7 @@ history4=model4.fit(x=([n_input, z_input, surf_input, coul_input, asym_input, pa
 scaler = MinMaxScaler(feature_range=(0,1))
 
 #rescaled_data = pd.read_csv("/3_rescaled_data/rescaled_data.csv"), sep=";")
-rescaled_data = pd.read_csv("/3_rescaled_data/rescaled_data.csv", sep=";")
+rescaled_data = pd.read_csv("3_rescaled_data/rescaled_data.csv", sep=";")
 
 rescaled_target = scaler.fit_transform(pd.Series.to_numpy(rescaled_data["ame_BE"]).reshape(-1,1))
 
@@ -373,7 +373,7 @@ train_data["Difference_BE_AME_ANN"] = train_data["ame_BE"] - train_data["BE_Pred
 train_data["Difference_BE_DZ_AME"] = train_data["dz_BE"] - train_data["ame_BE"]
 train_data["Difference_BE_DZ_ANN"] = train_data["dz_BE"] - train_data["BE_Predictions"]
 
-test_data = pd.read_csv("/3_rescaled_data/validation_rescaled_data.csv", sep=";")
+test_data = pd.read_csv("3_rescaled_data/validation_rescaled_data.csv", sep=";")
 
 
 test_target = test_data["rescaled_ame_BE"]
@@ -431,16 +431,16 @@ test_data["Difference_S2p_AME_Predictions"] = test_data["ame_S2p"] - test_data["
 test_data["Difference_S2n_DZ_Predictions"] = test_data["dz_S2n"] - test_data["Prediction_S2n"]
 test_data["Difference_S2p_DZ_Predictions"] = test_data["dz_S2p"] - test_data["Prediction_S2p"]
 
-train_data.to_csv("/4_final_data/train_final_data.csv",sep=";")
-test_data.to_csv("/4_final_data/validation_final_data.csv",sep=";")
+train_data.to_csv("4_final_data/train_final_data.csv",sep=";")
+test_data.to_csv("4_final_data/validation_final_data.csv",sep=";")
 
 ##################################################### PLOT
 
 plt.rcParams['text.usetex'] = True
 
-final_train = pd.read_csv("/4_final_data/train_final_data.csv", sep=";")
-final_test = pd.read_csv("/4_final_data/validation_final_data.csv", sep=";")
-merge_data = pd.read_csv("/2_processed_data/merged_data.csv", sep=";")
+final_train = pd.read_csv("4_final_data/train_final_data.csv", sep=";")
+final_test = pd.read_csv("4_final_data/validation_final_data.csv", sep=";")
+merge_data = pd.read_csv("2_processed_data/merged_data.csv", sep=";")
 
 merge_data.drop(merge_data[(merge_data["A"]<16 )].index, inplace=True)
 merge_data["Difference_BE_DZ_AME"] = merge_data["dz_BE"] - merge_data["ame_BE"]
@@ -449,7 +449,7 @@ plt.figure(figsize =(20,10))
 plt.ylabel("BE(EXP) - BE(DZ10) (MeV)")
 
 sns.scatterplot(x="A",y="Difference_BE_DZ_AME",data=merge_data, palette="rainbow_r", label="EXP - DZ10")
-plt.savefig("diff_BE(exp)-BE(DZ).png")
+plt.savefig("5_plots/diff_BE(exp)-BE(DZ).png")
 
 ## Train plot
 
@@ -463,7 +463,7 @@ plt.text(200, -4,'RMS Exp - Predict (train): {:.4f}'.format(rms_train) )
 
 sns.scatterplot(x="A",y="Difference_BE_DZ_AME",data=merge_data, palette="rainbow_r", label="EXP - DZ10")
 sns.scatterplot(x="A",y="Difference_BE_AME_ANN",data=final_train, palette="rainbow_r", label="Exp - Predict")
-plt.savefig("diff_train.png")
+plt.savefig("5_plots/diff_train.png")
 
 
 ## S2n plots for isotopic chains
@@ -482,7 +482,7 @@ def plot_S2n(data, Z_values):
         sns.lineplot(x="N", y="ame_S2n", data=data[data['Z'] == Z], color="black", label='EXP')
         sns.lineplot(x="N", y="Prediction_S2n", data=data[data['Z'] == Z], color="orange", label='ANN')
         sns.lineplot(x="N", y="dz_S2n", data=data[data['Z'] == Z], color="red", label='DZ10')
-        plt.savefig("/5_plots/S2n_Z_{}.png".format(Z))
+        plt.savefig("5_plots/S2n_Z_{}.png".format(Z))
         plt.show()
     
 
@@ -504,7 +504,7 @@ def plot_S1n(data, Z_values):
         sns.lineplot(x="N", y="ame_S1n", data=data[data['Z'] == Z], color="black", label='EXP')
         sns.lineplot(x="N", y="Prediction_S1n", data=data[data['Z'] == Z], color="orange", label='ANN')
         sns.lineplot(x="N", y="dz_S1n", data=data[data['Z'] == Z], color="red", label='DZ10')
-        plt.savefig("/5_plots/S1n_Z_{}.png".format(Z))
+        plt.savefig("5_plots/S1n_Z_{}.png".format(Z))
         plt.show()
        
 plot_S1n(final_test, [10, 38, 54, 68, 82])
