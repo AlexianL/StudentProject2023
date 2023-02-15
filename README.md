@@ -62,7 +62,7 @@ The plots will be saved into "5_plots".
 
 ## ANN error
 
-It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" remaining constant. If this situation happens to you, please execute again the "4_artificial_neural_netork.ipynb" or "6_complete_code.py" until this works. This error can occur on any machine.
+It can happen, both for notebooks and .py code, that the learning phase of the ANN doesn't work properly. This error will not stop the execution of the code. Instead, you will see that the "loss" remains constant. If this situation happens to you, please execute again the "4_artificial_neural_netork.ipynb" or "6_complete_code.py" until this works. This error can occur on any machine.
 
 
 
