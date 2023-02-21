@@ -1,4 +1,4 @@
-# Predicting nuclear structure observables with Artificial Neural Networks - Student Project 2023 - Master 2 PSA
+# Predicting nuclear observables with Artificial Neural Networks - Student Project 2023 - Master 2 PSA
 ### by M. Bordeau and A. Lejeune
 
 ## Description
