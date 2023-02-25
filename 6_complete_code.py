@@ -17,7 +17,6 @@ from keras.optimizers import Adam
 from keras.metrics import categorical_crossentropy
 from sklearn.preprocessing import MinMaxScaler
 from keras.callbacks import Callback
-from tqdm import tqdm
 
 ##################################################### RAW DATA
 
